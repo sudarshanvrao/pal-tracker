@@ -71,9 +71,9 @@ function merge_traffic_to_v2 {
   echo ""
   cf scale pal-tracker-v2 -i 2
 
-  echo "cf scale pal-tracker -i 1"
+  echo "cf scale pal-traker -i 1"
   echo ""
-  cf scale pal-tracker -i 1
+  cf scale pal-traker -i 1
 }
 
 function switch_all_traffic_to_v2 {
@@ -81,19 +81,19 @@ function switch_all_traffic_to_v2 {
   echo ""
   cf scale pal-tracker-v2 -i 3
 
-  echo "cf scale pal-tracker -i 0"
+  echo "cf scale pal-traker -i 0"
   echo ""
-  cf scale pal-tracker -i 0
+  cf scale pal-traker -i 0
 }
 
 function switch_v2_to_prod {
   echo "cf delete pal-tracker -f"
   echo ""
-  cf delete pal-tracker -f
+  cf delete pal-traker -f
 
   echo "cf rename pal-tracker-v2 pal-tracker"
   echo ""
-  cf rename pal-tracker-v2 pal-tracker
+  cf rename pal-tracker-v2 pal-traker
 
   echo "cf delete-route ${DOMAIN} --hostname pal-tracker-${UNIQUE_IDENTIFIER}-v2 -f"
   echo ""
